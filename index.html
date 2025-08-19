@@ -2,15 +2,23 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Мой сайт</title>
+  <title>360° Панорама</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
 </head>
 <body>
-  <h1>Привет, мир!</h1>
-  <p>Это мой тестовый сайт на GitHub Pages 🚀</p>
-  <button id="btn">Нажми меня</button>
-  <p id="text"></p>
+  <h1>360° Панорама</h1>
+  <div id="pano" style="width: 100%; height: 500px;"></div>
 
-  <script src="script.js"></script>
+  <script>
+    // Создаём панораму
+    var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+    var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
+    var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
+    var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/180);
+    var view = new Marzipano.RectilinearView(null, limiter);
+    var scene = viewer.createScene({ source: source, geometry: geometry, view: view });
+    scene.switchTo();
+  </script>
 </body>
 </html>
