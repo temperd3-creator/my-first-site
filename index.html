@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>360° Панорама</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steklick — изделия из стекла</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>360° Панорама</h1>
-  <div id="pano" style="width: 100%; height: 500px;"></div>
-
-  <script>
-    // Создаём панораму
-    var viewer = new Marzipano.Viewer(document.getElementById('pano'));
-    var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
-    var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
-    var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/180);
-    var view = new Marzipano.RectilinearView(null, limiter);
-    var scene = viewer.createScene({ source: source, geometry: geometry, view: view });
-    scene.switchTo();
-  </script>
+  <header>
+    <h1>Steklick</h1>
+    <p>Изделия из стекла в технике Тиффани</p>
+  </header>
+  <main>
+    <h2>Добро пожаловать!</h2>
+    <p>Здесь скоро появится моя коллекция работ.</p>
+  </main>
 </body>
 </html>
